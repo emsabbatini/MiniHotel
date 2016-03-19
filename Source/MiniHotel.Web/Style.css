@@ -1,0 +1,7 @@
+﻿div>table>tbody>tr:nth-child(4n+1) {
+    background-color:#dcdcdc;
+}
+div>table>tbody>tr:nth-child(even)>td {
+    border: none;
+    padding: 0;
+}

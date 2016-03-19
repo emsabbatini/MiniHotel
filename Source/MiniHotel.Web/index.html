@@ -1,0 +1,121 @@
+﻿<html>
+<head>
+    <title>Available Raters</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="Style.css" />
+</head>
+<body ng-app="AvailableRatersApp">
+    <div ng-controller="AvailableRatersController">
+        <br />
+        <div class="container">
+            <form ng-submit="search()">
+                <span>From:</span>
+                <input type="date" ng-model="dateFrom" placeholder="yyyy-MM-dd" min="2016-01-01" max="2099-12-31" required />
+                <span>To:</span>
+                <input type="date" ng-model="dateTo" placeholder="yyyy-MM-dd" min="2016-01-01" max="2099-12-31" required />
+                <input type="submit" id="submit" value="Search" />
+            </form>
+        </div>
+        <br />
+        <div class="container" ng-show="isVisible">        
+            <table class="table table-condensed table-bordered">
+                <thead>
+                    <tr>
+                        <th ng-style="{ 'width' : '5%' }">
+					        <input type="button" ng-value="allExpanded ? '-' : '+'" ng-click="expandAll(allExpanded = !allExpanded)"></input>
+                        </th>
+                        <th ng-style="{ 'width' : '95%' }">Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat-start="roomType in availableRaters.RoomType">
+                        <td>
+					        <input type="button" ng-value="expanded ? '-' : '+'" ng-click="expanded = !expanded" expand></input>
+                        </td>
+                        <td>{{roomType.Name_H}}</td>
+                    </tr>
+                    <tr ng-repeat-end ng-show="expanded">
+                        <td></td>
+                        <td>
+                            <table class="table table-condensed table-bordered">
+                                <thead>
+                                    <tr>
+                                        <td colspan="3">
+                                            Allocation: <span>{{roomType.Inventory.Allocation}}</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Board Code</th>
+                                        <th>Board Description</th>
+                                        <th>Value</th>  
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="price in roomType.Price">
+                                        <td>{{price.Board}}</td>
+                                        <td>{{price.BoardDesc}}</td>
+                                        <td>{{price.Value}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+<script src="https://code.angularjs.org/1.2.28/angular.js"></script>
+<script src="http://code.angularjs.org/1.2.28/angular-resource.js"></script>
+<script>
+    var app = angular.module("AvailableRatersApp", []);
+    app.controller("AvailableRatersController", function ($scope, $http) {
+
+        $scope.expandAll = function (expanded) {
+            $scope.$broadcast('onExpandAll', { expanded: expanded });
+        };
+
+        $scope.isVisible = false
+
+        $scope.search = function () {
+
+            var data = {
+                'Username': 'test',
+                'Password': '2222',
+                'HotelId': 'testhotel',
+                'HotelCurrency': 'USD',
+                'DateFrom': $scope.dateFrom ,
+                'DateTo': $scope.dateTo ,
+                'Adults': '2',
+                'Child': '0',
+                'Babies': '0',
+                'RateCode': '*ALL'
+            }
+
+            $http.post('http://localhost:54298/api/AvailableRaters', data).
+              success(function (data, status, headers, config) {
+                  $scope.isVisible = true
+                  $scope.availableRaters = data;
+              }).
+              error(function (data, status, headers, config) {
+                  $scope.isVisible = false
+                  $scope.availableRaters = [];
+                  alert("Error");
+              });
+        }
+    });
+    app.directive('expand', function(){
+        return {
+            restrict: 'A',
+            controller: ['$scope', function ($scope) {
+                $scope.$on('onExpandAll', function (event, args) {
+                    $scope.expanded = args.expanded;
+                });
+            }]
+        };
+    });
+
+</script>
+
+</html>
+

@@ -1,0 +1,8 @@
+C:\Users\Emmanuel\Desktop\MiniHotel\MiniHotel.Web\bin\MiniHotel.Web.dll
+C:\Users\Emmanuel\Desktop\MiniHotel\MiniHotel.Web\bin\MiniHotel.Web.pdb
+C:\Users\Emmanuel\Desktop\MiniHotel\MiniHotel.Web\bin\MiniHotel.Web.xml
+C:\Users\Emmanuel\Desktop\MiniHotel\MiniHotel.Web\obj\Debug\MiniHotel.Web.Resources.resources
+C:\Users\Emmanuel\Desktop\MiniHotel\MiniHotel.Web\obj\Debug\MiniHotel.Web.vbproj.GenerateResource.Cache
+C:\Users\Emmanuel\Desktop\MiniHotel\MiniHotel.Web\obj\Debug\MiniHotel.Web.dll
+C:\Users\Emmanuel\Desktop\MiniHotel\MiniHotel.Web\obj\Debug\MiniHotel.Web.xml
+C:\Users\Emmanuel\Desktop\MiniHotel\MiniHotel.Web\obj\Debug\MiniHotel.Web.pdb
