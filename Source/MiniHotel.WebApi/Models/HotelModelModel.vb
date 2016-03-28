@@ -1,7 +1,7 @@
 ﻿Imports System.Xml.Serialization
 
 <XmlRoot(ElementName:="Hotel")> _
-Public Class HotelModel
+Public Class HotelModelModel
     <XmlAttribute(AttributeName:="id")> _
     Public Property Id() As String
         Get

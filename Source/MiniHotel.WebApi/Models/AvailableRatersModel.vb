@@ -3,15 +3,15 @@
 <XmlRoot(ElementName:="AvailRaters")> _
 Public Class AvailableRatersModel
     <XmlElement(ElementName:="Hotel")> _
-    Public Property Hotel() As HotelModel
+    Public Property Hotel() As HotelModelModel
         Get
             Return m_Hotel
         End Get
-        Set(value As HotelModel)
+        Set(value As HotelModelModel)
             m_Hotel = value
         End Set
     End Property
-    Private m_Hotel As HotelModel
+    Private m_Hotel As HotelModelModel
     <XmlElement(ElementName:="DateRange")> _
     Public Property DateRange() As DateRangeModel
         Get

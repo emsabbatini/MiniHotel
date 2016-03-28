@@ -152,21 +152,31 @@
     <Import Include="System.Web.UI.HtmlControls" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\AvailableRatersController.vb" />
+    <Compile Include="Controllers\BaseController.vb" />
+    <Compile Include="Controllers\MiniHotelPMSController.vb" />
     <Compile Include="DTO\AvailableRaterDTO.vb" />
+    <Compile Include="DTO\ReservationDTO.vb" />
+    <Compile Include="DTO\ResponseOkDTO.vb" />
     <Compile Include="Global.asax.vb">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AvailableRatersModel.vb" />
     <Compile Include="Models\DateRangeModel.vb" />
     <Compile Include="Models\GuestsModel.vb" />
-    <Compile Include="Models\HotelModel.vb" />
+    <Compile Include="Models\HotelModelModel.vb" />
     <Compile Include="Models\InventoryModel.vb" />
+    <Compile Include="Models\MainGuestModel.vb" />
+    <Compile Include="Models\MealsModel.vb" />
+    <Compile Include="Models\MiniHotelPMSModel.vb" />
     <Compile Include="Models\PriceModel.vb" />
+    <Compile Include="Models\ResDatesModel.vb" />
+    <Compile Include="Models\ReservationModel.vb" />
+    <Compile Include="Models\ReservationsRSModel.vb" />
+    <Compile Include="Models\ResNumbersModel.vb" />
     <Compile Include="Models\RoomTypeModel.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
-    <Compile Include="Services\ExternalServices\MiniHotelService.vb" />
-    <Compile Include="Services\Interfaces\IMiniHotelService.vb" />
+    <Compile Include="Services\ExternalServices\MiniHotelPMSService.vb" />
+    <Compile Include="Services\Interfaces\IMiniHotelPMSService.vb" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.vb" />

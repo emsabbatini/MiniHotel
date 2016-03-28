@@ -81,9 +81,22 @@
     <Import Include="System.Web.UI.HtmlControls" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\app.module.js" />
+    <Content Include="app\app.routes.js" />
+    <Content Include="app\components\available\available.html" />
+    <Content Include="app\components\available\availableController.js" />
+    <Content Include="app\components\available\availableDirective.js" />
+    <Content Include="app\components\reservation\reservation.html" />
+    <Content Include="app\components\reservation\reservationController.js" />
+    <Content Include="app\services\interceptorService.js" />
+    <Content Include="app\services\minihotelpmsService.js" />
+    <Content Include="app\shared\modals\message\message.html" />
+    <Content Include="app\shared\modals\message\messageController.js" />
+    <Content Include="app\shared\spinner\spinnerDirective.js" />
+    <Content Include="assets\css\availableStyle.css" />
+    <Content Include="assets\css\spinnerStyle.css" />
+    <Content Include="assets\libs\ui-bootstrap-tpls-1.2.5.min.js" />
     <Content Include="index.html" />
-    <Content Include="Style.css" />
-    <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -115,6 +128,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\app.constant.js" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -124,12 +138,17 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
-    <None Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
+    <Content Include="web.config" />
+    <None Include="web.Debug.config">
+      <DependentUpon>web.config</DependentUpon>
     </None>
-    <None Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
+    <None Include="web.Release.config">
+      <DependentUpon>web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="assets\img\" />
+    <Folder Include="assets\js\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
