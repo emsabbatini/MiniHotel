@@ -1,1 +1,32 @@
-﻿
+﻿<div>
+    <search></search>
+     <hr />
+    <div class="container" ng-show="reservations.isVisible">
+        <table class="table table-condensed table-bordered">
+            <thead>
+                <tr>
+                    <td class="text-center">Reservation Number</td>
+                    <td class="text-center">Ota Number</td>
+                    <td class="text-center">First Name</td>
+                    <td class="text-center">Last Name</td>
+                    <td class="text-center">Passport</td>
+                    <td class="text-center">Create Date</td>
+                    <td class="text-center">Arrival Date</td>
+                    <td class="text-center">Departure Date</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="res in reservations.reservationsRS.Reservation">
+                    <td>{{res.ResNumbers.Number}}</td>
+                    <td>{{res.ResNumbers.OtaNumber}}</td>
+                    <td>{{res.MainGuest.FirstName}}</td>
+                    <td>{{res.MainGuest.LastName}}</td>
+                    <td>{{res.MainGuest.Passport}}</td>
+                    <td>{{res.ResDates.CreateDate}}</td>
+                    <td>{{res.ResDates.Arrival}}</td>
+                    <td>{{res.ResDates.Departure}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

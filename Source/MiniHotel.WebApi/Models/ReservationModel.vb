@@ -2,7 +2,7 @@
 
 <XmlRoot(ElementName:="Reservation")> _
 Public Class ReservationModel
-    <XmlElement(ElementName:="ResNumbers")> _
+    <XmlElement(ElementName:="Resnumbers")> _
     Public Property ResNumbers() As ResNumbersModel
         Get
             Return m_ResNumbers

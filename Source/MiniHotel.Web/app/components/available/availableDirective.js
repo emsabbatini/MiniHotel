@@ -2,7 +2,6 @@
     'use strict';
 
     angular.module('minihotelpmsApp').directive('expand', function () {
-
         return {
             restrict: 'A',
             controller: ['$scope', function ($scope) {
@@ -13,5 +12,4 @@
         };
 
     });
-
 })();

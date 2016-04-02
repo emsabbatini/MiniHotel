@@ -1,6 +1,6 @@
 ﻿Imports System.Xml.Serialization
 
-<XmlRoot(ElementName:="ResNumbers")> _
+<XmlRoot(ElementName:="Resnumbers")> _
 Public Class ResNumbersModel
     <XmlAttribute(AttributeName:="Number")> _
     Public Property Number() As String

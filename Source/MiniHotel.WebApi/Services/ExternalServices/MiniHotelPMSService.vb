@@ -8,7 +8,8 @@ Imports System.IO
 Public Class MiniHotelPMSService
     Implements IMiniHotelPMSService
 
-    Private ReadOnly ApiHost As String = "http://api.minihotelpms.com/GDS"
+    Private ReadOnly ApiHostAvailableRaters As String = "http://api.minihotelpms.com/GDS"
+    Private ReadOnly ApiHostReservations As String = " https://ssl3.motel-soft.com/miniviewer/reservations/web_reservations_query_service.aspx"
 
     Public Function GetAvailableRaters(ByVal Body As AvailableRaterDTO) As MiniHotelPMSModel(Of AvailableRatersModel) Implements IMiniHotelPMSService.GetAvailableRaters
         Dim Response As String
@@ -16,14 +17,14 @@ Public Class MiniHotelPMSService
                         "<AvailRaterq xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>" + _
                         "<Authentication username='test' password='2222' />" + _
                         "<Hotel id='testhotel' Currency='USD' />" + _
-                        "<DateRange from='" + Body.DateFrom + "' to='" + Body.DateTo + "' />" + _
+                        "<DateRange from='" + Body.DateFrom.ToString("yyyy-MM-dd") + "' to='" + Body.DateTo.ToString("yyyy-MM-dd") + "' />" + _
                         "<Guests adults='2' child='0' babies='0' />" + _
                         "<Prices rateCode='*ALL'>" + _
                         "</Prices>" + _
                         "</AvailRaterq>"
 
         Using Client As New WebClient
-            Response = Client.UploadString(ApiHost, RequestBody)
+            Response = Client.UploadString(ApiHostAvailableRaters, RequestBody)
         End Using
 
         Return ProcessResponse(Of AvailableRatersModel)(Response)
@@ -36,14 +37,14 @@ Public Class MiniHotelPMSService
         Dim RequestBody = "<?xml version='1.0' encoding='UTF-8' ?>" + _
                         "<ReservationsRQ>" + _
                         "<Authentication username='test' password='2222' />" + _
-                        "<Hotel id='testhotel' />" + _
-                        "<CreateDate From='" + Body.CreateDateFrom + "' To='" + Body.CreateDateTo + "' />" + _
-                        "<ArrivalDate From='" + Body.ArrivalFrom + "' To='" + Body.ArrivalTo + "' />" + _
-                        "<DepartureDate From='" + Body.DepartureFrom + "' To='" + Body.DepartureTo + "' />" + _
+                        "<Hotel id='demo2' />" + _
+                        "<CreateDate From='' To='' />" + _
+                        "<ArrivalDate From='" + Body.ArrivalDateFrom.ToString("yyyy-MM-dd") + "' To='" + Body.ArrivalDateTo.ToString("yyyy-MM-dd") + "' />" + _
+                        "<DepartureDate From='" + Body.DepartureDateFrom.ToString("yyyy-MM-dd") + "' To='" + Body.DepartureDateTo.ToString("yyyy-MM-dd") + "' />" + _
                         "</ReservationsRQ>"
 
         Using Client As New WebClient
-            Response = Client.UploadString(ApiHost, RequestBody)
+            Response = Client.UploadString(ApiHostReservations, RequestBody)
         End Using
 
         Return ProcessResponse(Of ReservationsRSModel)(Response)

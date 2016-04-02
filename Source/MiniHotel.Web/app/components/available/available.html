@@ -1,42 +1,18 @@
-﻿<div ng-controller="availableController">
-    <br />
-    <div class="container">
-        <form class="form-inline" ng-submit="search()">
-            <div class="row">
-                <div class="col-sm-3">
-                    <div class="form-group">
-                        <label>From:</label>
-                        <input type="date" class="form-control" ng-model="dateFrom" placeholder="yyyy-MM-dd" min="2016-01-01" max="2099-12-31" required />
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="form-group">
-                        <label>To:</label>
-                        <input type="date" class="form-control" ng-model="dateTo" placeholder="yyyy-MM-dd" min="2016-01-01" max="2099-12-31" required />
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <input type="submit" class="btn btn-primary btn-lg btn-block" value="Search" />
-                </div>
-                <div class="col-sm-3">
-                    <input type="button" class="btn btn-success btn-lg btn-block" value="Print" />
-                </div>
-            </div>
-        </form>
-    </div>
-    <br />
-    <div class="container" ng-show="isVisible">        
+﻿<div>
+    <search></search>
+    <hr />
+    <div class="container" ng-show="available.isVisible">        
         <table class="table table-condensed table-bordered">
             <thead>
                 <tr>                        
                     <th ng-style="{ 'width' : '5%' }">
-					    <input type="button" ng-value="allExpanded ? '-' : '+'" ng-click="expandAll(allExpanded = !allExpanded)"></input>
+					    <input type="button" ng-value="allExpanded ? '-' : '+'" ng-click="available.expandAll(allExpanded = !allExpanded)"></input>
                     </th>
                     <th ng-style="{ 'width' : '95%' }">Name</th>
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat-start="roomType in availableRaters.RoomType">
+                <tr ng-repeat-start="roomType in available.availableRaters.RoomType">
                     <td>
 			            <input type="button" ng-value="expanded ? '-' : '+'" ng-click="expanded = !expanded" expand></input>
                     </td>

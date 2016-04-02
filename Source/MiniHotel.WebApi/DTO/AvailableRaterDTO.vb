@@ -35,24 +35,24 @@
         End Set
     End Property
     Private m_HotelCurrency As String
-    Public Property DateFrom() As String
+    Public Property DateFrom() As Date
         Get
             Return m_DateFrom
         End Get
-        Set(value As String)
+        Set(value As Date)
             m_DateFrom = value
         End Set
     End Property
-    Private m_DateFrom As String
-    Public Property DateTo() As String
+    Private m_DateFrom As Date
+    Public Property DateTo() As Date
         Get
             Return m_DateTo
         End Get
-        Set(value As String)
+        Set(value As Date)
             m_DateTo = value
         End Set
     End Property
-    Private m_DateTo As String
+    Private m_DateTo As Date
     Public Property Adults() As Integer
         Get
             Return m_Adults

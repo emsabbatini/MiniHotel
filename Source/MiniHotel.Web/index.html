@@ -4,7 +4,8 @@
     <title>Mini Hotel PMS & Channel Manager</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="assets/css/spinnerStyle.css"/>
+    <link rel="stylesheet" href="assets/css/sticky-footer.css"/>
+    <link rel="stylesheet" href="assets/css/spinner.css"/>
 </head>
 <body >
     <div ng-show="isSpinnerOn" spinner class="spinner-background" >
@@ -27,26 +28,32 @@
         <div ng-view></div>
     </div>
 
-    <footer class="text-center">
-        <p>Copyright © 2016 <a href="http://www.minihotelpms.com/">Mini Hotel PMS & Channel Manager</a></p>
+    <footer class="footer text-center">
+        <p class="text-muted">Copyright © 2016 <a href="http://www.minihotelpms.com/">Mini Hotel PMS & Channel Manager</a></p>
     </footer>
 
-    <script src="https://code.angularjs.org/1.5.0/angular.js"></script>
-    <script src="https://code.angularjs.org/1.5.0/angular-route.js"></script>
-    <script src="https://code.angularjs.org/1.5.0/angular-animate.js"></script>
-    <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.2.5.js"></script>
+    <script src="assets/libs/angular/angular.min.js"></script>
+    <script src="assets/libs/angular/angular-route.min.js"></script>
+    <script src="assets/libs/angular/angular-animate.min.js"></script>
+    <script src="assets/libs/angular/angular-sanitize.min.js"></script>
+    <script src="assets/libs/excel/ng-csv.js"></script>
+    <script src="assets/libs/angular-bootstrap/ui-bootstrap-tpls-1.2.5.min.js"></script>
+    <script src="assets/libs/angular-css/angular-css.js"></script>
      <!-- MODULES -->
     <script src="app/app.module.js"></script>
     <script src="app/app.routes.js"></script>
     <script src="app/app.constant.js"></script>
      <!-- CONTROLLERS -->
     <script src="app/components/available/availableController.js"></script>
+    <script src="app/components/reservation/reservationController.js"></script>
     <script src="app/shared/modals/message/messageController.js"></script>
+    <script src="app/shared/search/searchController.js"></script>
      <!-- SERVICES -->
     <script src="app/services/minihotelpmsService.js"></script>
     <script src="app/services/interceptorService.js"></script>
     <!-- DIRECTIVES -->
     <script src="app/components/available/availableDirective.js"></script>
     <script src="app/shared/spinner/spinnerDirective.js"></script>
+    <script src="app/shared/search/searchDirective.js"></script>
 </body>
 </html>

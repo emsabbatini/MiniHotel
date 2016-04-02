@@ -1,16 +1,19 @@
 ﻿(function() {
   'use strict';
 
-  angular.module('minihotelpmsApp').config(function ($routeProvider, $httpProvider) {
+  angular.module('minihotelpmsApp').config(function ($routeProvider, $httpProvider, constants) {
 
     $routeProvider
-      .when('/', {
+      .when(constants.partialView['AVAILABLE'], {
           templateUrl : 'app/components/available/available.html',
-          controller: 'availableController'
+          controller: 'availableController',
+          controllerAs: 'available',
+          css: 'assets/css/available.css'
       })
-      .when('/reservation', {
+      .when(constants.partialView['RESERVATION'], {
           templateUrl : 'app/components/reservation/reservation.html',
-          controller  : 'reservationController'
+          controller: 'reservationController',
+          controllerAs: 'reservations'
       });
 
     $httpProvider.interceptors.push('httpinterceptor');

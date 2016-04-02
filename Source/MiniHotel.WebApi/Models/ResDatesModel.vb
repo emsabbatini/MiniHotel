@@ -22,14 +22,14 @@ Public Class ResDatesModel
         End Set
     End Property
     Private m_Arrival As String
-    <XmlAttribute(AttributeName:="Departue")> _
-    Public Property Departue() As String
+    <XmlAttribute(AttributeName:="Departure")> _
+    Public Property Departure() As String
         Get
-            Return m_Departue
+            Return m_Departure
         End Get
         Set(value As String)
-            m_Departue = value
+            m_Departure = value
         End Set
     End Property
-    Private m_Departue As String
+    Private m_Departure As String
 End Class

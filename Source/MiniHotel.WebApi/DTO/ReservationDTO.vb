@@ -26,58 +26,58 @@
         End Set
     End Property
     Private m_HotelId As String
-    Public Property CreateDateFrom() As String
+    Public Property CreateDateFrom() As Date
         Get
             Return m_CreateDateFrom
         End Get
-        Set(value As String)
+        Set(value As Date)
             m_CreateDateFrom = value
         End Set
     End Property
-    Private m_CreateDateFrom As String
-    Public Property CreateDateTo() As String
+    Private m_CreateDateFrom As Date
+    Public Property CreateDateTo() As Date
         Get
             Return m_CreateDateTo
         End Get
-        Set(value As String)
+        Set(value As Date)
             m_CreateDateTo = value
         End Set
     End Property
-    Private m_CreateDateTo As String
-    Public Property ArrivalFrom() As String
+    Private m_CreateDateTo As Date
+    Public Property ArrivalDateFrom() As Date
         Get
-            Return m_ArrivalFrom
+            Return m_ArrivalDateFrom
         End Get
-        Set(value As String)
-            m_ArrivalFrom = value
+        Set(value As Date)
+            m_ArrivalDateFrom = value
         End Set
     End Property
-    Private m_ArrivalFrom As String
-    Public Property ArrivalTo() As String
+    Private m_ArrivalDateFrom As Date
+    Public Property ArrivalDateTo() As Date
         Get
-            Return m_ArrivalTo
+            Return m_ArrivalDateTo
         End Get
-        Set(value As String)
-            m_ArrivalTo = value
+        Set(value As Date)
+            m_ArrivalDateTo = value
         End Set
     End Property
-    Private m_ArrivalTo As String
-    Public Property DepartureFrom() As String
+    Private m_ArrivalDateTo As Date
+    Public Property DepartureDateFrom() As Date
         Get
-            Return m_DepartureFrom
+            Return m_DepartureDateFrom
         End Get
-        Set(value As String)
-            m_DepartureFrom = value
+        Set(value As Date)
+            m_DepartureDateFrom = value
         End Set
     End Property
-    Private m_DepartureFrom As String
-    Public Property DepartureTo() As String
+    Private m_DepartureDateFrom As Date
+    Public Property DepartureDateTo() As Date
         Get
-            Return m_DepartureTo
+            Return m_DepartureDateTo
         End Get
-        Set(value As String)
-            m_DepartureTo = value
+        Set(value As Date)
+            m_DepartureDateTo = value
         End Set
     End Property
-    Private m_DepartureTo As String
+    Private m_DepartureDateTo As Date
 End Class

@@ -27,7 +27,7 @@ Namespace MiniHotel.WebApi
 
         <HttpPost()>
         Public Function Reservations(ByVal Body As ReservationDTO) As IHttpActionResult
-
+            Return WrapOk(_MiniHotelService.GetReservations(Body))
         End Function
 
 

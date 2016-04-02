@@ -88,14 +88,25 @@
     <Content Include="app\components\available\availableDirective.js" />
     <Content Include="app\components\reservation\reservation.html" />
     <Content Include="app\components\reservation\reservationController.js" />
+    <Content Include="app\shared\search\search.html" />
     <Content Include="app\services\interceptorService.js" />
     <Content Include="app\services\minihotelpmsService.js" />
     <Content Include="app\shared\modals\message\message.html" />
     <Content Include="app\shared\modals\message\messageController.js" />
+    <Content Include="app\shared\search\searchController.js" />
+    <Content Include="app\shared\search\searchDirective.js" />
     <Content Include="app\shared\spinner\spinnerDirective.js" />
-    <Content Include="assets\css\availableStyle.css" />
-    <Content Include="assets\css\spinnerStyle.css" />
-    <Content Include="assets\libs\ui-bootstrap-tpls-1.2.5.min.js" />
+    <Content Include="assets\css\available.css" />
+    <Content Include="assets\css\spinner.css" />
+    <Content Include="assets\css\sticky-footer.css" />
+    <Content Include="assets\libs\angular-css\angular-css.js" />
+    <Content Include="assets\libs\angular-bootstrap\ui-bootstrap-tpls-1.2.5.min.js" />
+    <Content Include="assets\libs\angular\angular-animate.min.js" />
+    <Content Include="assets\libs\angular\angular-route.min.js" />
+    <Content Include="assets\libs\angular\angular.min.js" />
+    <Content Include="assets\libs\bootstrap\bootstrap.min.css" />
+    <Content Include="assets\libs\excel\ng-csv.js" />
+    <Content Include="assets\libs\font-awesome\font-awesome.min.css" />
     <Content Include="index.html" />
   </ItemGroup>
   <ItemGroup>
@@ -129,6 +140,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\app.constant.js" />
+    <Content Include="assets\libs\angular\angular-sanitize.min.js" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
