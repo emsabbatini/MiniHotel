@@ -14,7 +14,9 @@
                                                                     placeholder="dd/mm/yyyy"
                                                                     ng-model="search.dateFrom" 
                                                                     ng-focus="search.dateFromOpen()"  
-                                                                    ng-required="true" />
+                                                                    ng-required="true" 
+                                                                    ng-change="search.dateToSetMin()"
+                                                                    min-date="search.dateFromMin"/>
                             <span class="input-group-btn">
                                 <button type="button" class="btn btn-default" ng-click="search.dateFromOpen()"><i class="glyphicon glyphicon-calendar"></i></button>
                             </span>
@@ -31,7 +33,9 @@
                                                                     placeholder="dd/mm/yyyy"
                                                                     ng-model="search.dateTo" 
                                                                     ng-focus="search.dateToOpen()"  
-                                                                    ng-required="true" />
+                                                                    ng-required="true" 
+                                                                    min-date="search.dateToMin" 
+                                                                    init-date="search.dateToInit"/>
                             <span class="input-group-btn">
                                 <button type="button" class="btn btn-default" ng-click="search.dateToOpen()"><i class="glyphicon glyphicon-calendar"></i></button>
                             </span>
@@ -51,7 +55,9 @@
                                                                     placeholder="dd/mm/yyyy"
                                                                     ng-model="search.dateDepFrom" 
                                                                     ng-focus="search.dateDepFromOpen()"  
-                                                                    ng-required="search.isRequired" />
+                                                                    ng-required="search.isRequired" 
+                                                                    ng-change="search.dateDepToSetMin()"
+                                                                    min-date="search.dateDepFromMin"/>                                
                             <span class="input-group-btn">
                                 <button type="button" class="btn btn-default" ng-click="search.dateDepFromOpen()"><i class="glyphicon glyphicon-calendar"></i></button>
                             </span>
@@ -68,7 +74,9 @@
                                                                     placeholder="dd/mm/yyyy"
                                                                     ng-model="search.dateDepTo" 
                                                                     ng-focus="search.dateDepToOpen()"  
-                                                                    ng-required="search.isRequired" />
+                                                                    ng-required="search.isRequired" 
+                                                                    min-date="search.dateDepToMin"
+                                                                    init-date="search.dateDepToInit" />
                             <span class="input-group-btn">
                                 <button type="button" class="btn btn-default" ng-click="search.dateDepToOpen()"><i class="glyphicon glyphicon-calendar"></i></button>
                             </span>

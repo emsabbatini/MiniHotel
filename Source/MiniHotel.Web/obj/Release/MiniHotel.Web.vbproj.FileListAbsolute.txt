@@ -1,0 +1,8 @@
+C:\Repositories\MiniHotel\Source\MiniHotel.Web\bin\MiniHotel.Web.dll
+C:\Repositories\MiniHotel\Source\MiniHotel.Web\bin\MiniHotel.Web.pdb
+C:\Repositories\MiniHotel\Source\MiniHotel.Web\bin\MiniHotel.Web.xml
+C:\Repositories\MiniHotel\Source\MiniHotel.Web\obj\Release\MiniHotel.Web.Resources.resources
+C:\Repositories\MiniHotel\Source\MiniHotel.Web\obj\Release\MiniHotel.Web.vbproj.GenerateResource.Cache
+C:\Repositories\MiniHotel\Source\MiniHotel.Web\obj\Release\MiniHotel.Web.dll
+C:\Repositories\MiniHotel\Source\MiniHotel.Web\obj\Release\MiniHotel.Web.xml
+C:\Repositories\MiniHotel\Source\MiniHotel.Web\obj\Release\MiniHotel.Web.pdb

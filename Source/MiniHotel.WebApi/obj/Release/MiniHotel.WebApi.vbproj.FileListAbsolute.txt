@@ -41,3 +41,4 @@ C:\Repositories\MiniHotel\Source\MiniHotel.WebApi\bin\es\System.Web.WebPages.Raz
 C:\Repositories\MiniHotel\Source\MiniHotel.WebApi\obj\Release\MiniHotel.WebApi.dll
 C:\Repositories\MiniHotel\Source\MiniHotel.WebApi\obj\Release\MiniHotel.WebApi.xml
 C:\Repositories\MiniHotel\Source\MiniHotel.WebApi\obj\Release\MiniHotel.WebApi.pdb
+C:\Repositories\MiniHotel\Source\MiniHotel.WebApi\obj\Release\MiniHotel.WebApi.vbprojResolveAssemblyReference.cache
