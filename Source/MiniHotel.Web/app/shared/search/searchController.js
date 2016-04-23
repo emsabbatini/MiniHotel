@@ -13,32 +13,36 @@
         vm.dateFromLabel = vm.isReservationsView ? 'Arrival From:' : 'Date From:';
         vm.dateFromOpened = false;
         vm.dateFromOpen = function () { vm.dateFromOpened = true; };
-        vm.dateFromMin = new Date();
         
         vm.dateToLabel = vm.isReservationsView ? 'Arrival To:' : 'Date To:';
         vm.dateToOpened = false;
         vm.dateToOpen = function () { vm.dateToOpened = true; };
         vm.dateToSetMin = function () {
             vm.dateToMin = vm.dateFrom;
-            vm.dateToInit = vm.dateFrom;
+            vm.dateToInit = vm.isReservationsView ? new Date() : vm.dateFrom;
             vm.dateToMin.setDate(vm.dateToMin.getDate() + 1);
-
         };
 
         vm.dateDepFromOpened = false;
         vm.dateDepFromOpen = function () { vm.dateDepFromOpened = true; };
-        vm.dateDepFromMin = new Date();
-
+        
         vm.dateDepToOpened = false;
         vm.dateDepToOpen = function () { vm.dateDepToOpened = true; };
         vm.dateDepToSetMin = function () {
             vm.dateDepToMin = vm.dateDepFrom;
-            vm.dateDepToInit = vm.dateDepFrom;
+            vm.dateDepToInit = vm.isReservationsView ? new Date() : vm.dateDepFrom;
             vm.dateDepToMin.setDate(vm.dateDepToMin.getDate() + 1);
         };
-
+        
         vm.isRequired = vm.isReservationsView ? true : false;
        
+        if (!vm.isReservationsView) {
+            vm.dateFromMin = new Date();
+        } else {
+            vm.dateFromMin = new Date(0, 1, 1);
+            vm.dateDepFromMin = new Date(0, 1, 1);
+        }
+
         vm.search = function () {
 
             switch ($location.$$path) {
