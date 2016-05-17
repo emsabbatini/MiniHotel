@@ -86,4 +86,3 @@ C:\Repositories\MiniHotel\Source\MiniHotel.WebApi\obj\Debug\MiniHotel.WebApi.vbp
 C:\Repositories\MiniHotel\Source\MiniHotel.WebApi\obj\Debug\MiniHotel.WebApi.dll
 C:\Repositories\MiniHotel\Source\MiniHotel.WebApi\obj\Debug\MiniHotel.WebApi.xml
 C:\Repositories\MiniHotel\Source\MiniHotel.WebApi\obj\Debug\MiniHotel.WebApi.pdb
-C:\Repo\MiniHotel\Source\MiniHotel.WebApi\obj\Debug\MiniHotel.WebApi.xml

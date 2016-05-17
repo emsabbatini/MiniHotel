@@ -7,7 +7,8 @@
       .when(constants.partialView['AVAILABLE'], {
           templateUrl : 'app/components/available/available.html',
           controller: 'availableController',
-          controllerAs: 'available'
+          controllerAs: 'available',
+          css: 'assets/css/available.css'
       })
       .when(constants.partialView['RESERVATION'], {
           templateUrl : 'app/components/reservation/reservation.html',

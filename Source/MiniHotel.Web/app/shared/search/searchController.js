@@ -1,16 +1,10 @@
 ﻿(function () {
     'use strict';
 
-    angular.module('minihotelpmsApp').controller('searchController', function ($scope, minihotelpmsservice, constants, $location, $uibModal, dataservice) {
+    angular.module('minihotelpmsApp').controller('searchController', function ($scope, minihotelpmsservice, constants, $location, $uibModal) {
         var vm = this;
 
-
-            vm.datepickerOptions = { showTodayButton: true, format:"DD/MM/YYYY"
-
-            };
-
-
-        vm.isDisabled = true;
+        vm.exportIsDisabled = true;
         vm.exportDataHeader = [];
         vm.exportData = [];
         
@@ -79,14 +73,14 @@
             minihotelpmsservice.getAvailableRaters(availableRequest).then(function (data) {
                 if (!data.HasError){
                     $scope.loadAvailable(data.DataObject);
-                    vm.isDisabled = false;
+                    vm.exportIsDisabled = false;
                     parseExportaData(data.DataObject);
                 } 
                     
                 else {
                     $scope.loadAvailable([]);
                     showModal(constants.iconType['WARNING'], data.ErrorMessage);
-                    vm.isDisabled = true;
+                    vm.exportIsDisabled = true;
                     
                 }
             }, function (error) {
@@ -112,12 +106,12 @@
             minihotelpmsservice.getReservations(reservationRequest).then(function (data) {
                 if (!data.HasError){
                     $scope.loadReservation(data.DataObject);
-                    vm.isDisabled = false;
+                    vm.exportIsDisabled = false;
                     parseExportaData(data.DataObject);
                 }
                 else {
                     $scope.loadReservation([]);
-                    vm.isDisabled = true;
+                    vm.exportIsDisabled = true;
                     showModal(constants.iconType['WARNING'], data.ErrorMessage);
                 }
             }, function (error) {
@@ -126,6 +120,48 @@
             });
 
         }
+
+        function parseExportaData(data) {
+
+            vm.exportData = [];
+            vm.exportDataHeader = [];
+            
+            var res = {};
+
+            switch ($location.$$path) {
+                case constants.partialView['AVAILABLE']:
+                    vm.exportDataHeader = ['ROOM TYPE', 'BOARD CODE', 'BOARD DESCRIPTION', 'VALUE'];
+                    for (var i = 0; i < data.RoomType.length; i++) {
+                        for (var j = 0; j < data.RoomType[i].Price.length; j++)
+                        {
+                            res = {
+                                roomtype: data.RoomType[i].Name_H,
+                                code: data.RoomType[i].Price[j].Board,
+                                description: data.RoomType[i].Price[j].BoardDesc,
+                                value: data.RoomType[i].Price[j].Value
+                            };
+                            vm.exportData.push(res);
+                        }                        
+                    }
+                    break;
+                case constants.partialView['RESERVATION']:
+                    vm.exportDataHeader = ['NUMBER', 'OTA NUMBER', 'FIRST NAME', 'LAST NAME', 'PASSPORT', 'CREATE DATE', 'ARRIVAL DATE', 'DEPARTURE DATE'];
+                    for (var i = 0; i < data.Reservation.length; i++) {
+                        res = {
+                            number: data.Reservation[i].ResNumbers.Number,
+                            otanumber: data.Reservation[i].ResNumbers.OtaNumber,
+                            firstname: data.Reservation[i].MainGuest.FirstName,
+                            lastname: data.Reservation[i].MainGuest.LastName,
+                            passport: data.Reservation[i].MainGuest.Passport,
+                            createdate: data.Reservation[i].ResDates.CreateDate,
+                            arrivaldate: data.Reservation[i].ResDates.Arrival,
+                            departuredate: data.Reservation[i].ResDates.Departure,
+                        };
+                        vm.exportData.push(res);
+                    }
+                    break;
+            }
+        };
 
         function showModal(icon, message) {
             var modalInstance = $uibModal.open({

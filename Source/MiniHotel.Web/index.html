@@ -2,13 +2,8 @@
 <html ng-app="minihotelpmsApp">
 <head>
     <title>Mini Hotel PMS & Channel Manager</title>
-    <!-- BOOTSTRAP -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-    <!-- DATETIMEPICKER -->
-    <link rel="stylesheet" href="assets/libs/datetimepicker/bootstrap-datetimepicker.css" />
-    <!-- FONT-AWESOME -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
-    <!-- CUSTOMS -->
     <link rel="stylesheet" href="assets/css/sticky-footer.css"/>
     <link rel="stylesheet" href="assets/css/spinner.css"/>
 </head>
@@ -23,7 +18,7 @@
                 <a class="navbar-brand" href="#/">Mini Hotel PMS & Channel Manager</a>
             </div>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#/"><i class="fa fa-calendar"></i> Available Rates</a></li>
+                <li><a href="#/"><i class="fa fa-calendar"></i> Available Raters</a></li>
                 <li><a href="#/reservation"><i class="fa fa-calendar-check-o"></i> Reservations</a></li>
             </ul>
         </div>
@@ -37,18 +32,13 @@
         <p class="text-muted">Copyright © 2016 <a href="http://www.minihotelpms.com/">Mini Hotel PMS & Channel Manager</a></p>
     </footer>
 
-    <!-- DATEPICKER -->
-    <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="http://momentjs.com/downloads/moment-with-locales.min.js"></script>
-    <script src="assets/libs/datetimepicker/bootstrap-datetimepicker.js"></script>
-    <!-- ANGULAR -->
-    <script src="https://code.angularjs.org/1.5.0/angular.min.js"></script>
-    <script src="https://code.angularjs.org/1.5.0/angular-route.js"></script>
-    <script src="https://code.angularjs.org/1.5.0/angular-animate.min.js"></script>
-    <script src="https://code.angularjs.org/1.5.0/angular-sanitize.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.3.2/ui-bootstrap-tpls.min.js"></script>
-    <script src="assets/libs/excel/ng-csv.js"></script> 
+    <script src="assets/libs/angular/angular.min.js"></script>
+    <script src="assets/libs/angular/angular-route.min.js"></script>
+    <script src="assets/libs/angular/angular-animate.min.js"></script>
+    <script src="assets/libs/angular/angular-sanitize.min.js"></script>
+    <script src="assets/libs/excel/ng-csv.js"></script>
+    <script src="assets/libs/angular-bootstrap/ui-bootstrap-tpls-1.2.5.min.js"></script>
+    <script src="assets/libs/angular-css/angular-css.js"></script>
      <!-- MODULES -->
     <script src="app/app.module.js"></script>
     <script src="app/app.routes.js"></script>
@@ -61,11 +51,9 @@
      <!-- SERVICES -->
     <script src="app/services/minihotelpmsService.js"></script>
     <script src="app/services/interceptorService.js"></script>
-    <script src="app/services/dataService.js"></script>
     <!-- DIRECTIVES -->
     <script src="app/components/available/availableDirective.js"></script>
     <script src="app/shared/spinner/spinnerDirective.js"></script>
     <script src="app/shared/search/searchDirective.js"></script>
-    <script src="assets/libs/datetimepicker/angular-bootstrap-datetimepicker-directive.min.js"></script>
 </body>
 </html>
