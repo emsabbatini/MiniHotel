@@ -1,7 +1,5 @@
-﻿Imports Newtonsoft.Json
-Imports System.Xml
+﻿Imports System.Xml
 Imports System.Net
-Imports RestSharp
 Imports System.Xml.Serialization
 Imports System.IO
 

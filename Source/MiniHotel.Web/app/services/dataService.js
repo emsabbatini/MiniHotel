@@ -7,7 +7,7 @@
 
         function parseData(data){
 
-            var returnData;
+            var returnData = {};
 
             returnData.exportData = [];
             returnData.exportDataHeader = [];

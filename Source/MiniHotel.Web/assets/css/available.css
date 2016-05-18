@@ -1,7 +1,7 @@
-﻿div>table.availableClass1>tbody>tr:nth-child(4n+1) {
+﻿div>table>tbody.availableClass1>tr:nth-child(4n+1) {
     background-color:#dcdcdc;
 }
-div>table.availableClass2>tbody>tr:nth-child(even)>td {
+div>table>tbody.availableClass2>tr:nth-child(even)>td {
     border: none;
     padding: 0;
 }

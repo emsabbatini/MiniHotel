@@ -80,7 +80,7 @@
                 if (!data.HasError){
                     $scope.loadAvailable(data.DataObject);
                     vm.isDisabled = false;
-                    parseExportaData(data.DataObject);
+                    dataservice.parseData(data.DataObject);
                 } 
                     
                 else {
