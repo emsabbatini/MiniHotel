@@ -319,7 +319,11 @@
             getToolbar = function () {
                 var row = [];
                 if (options.showTodayButton) {
-                    row.push($('<td>').append($('<a>').attr({'data-action':'today', 'title': options.tooltips.today}).append($('<span>').addClass(options.icons.today))));
+                    //row.push($('<td>').append($('<a>').attr({'data-action':'today', 'title': options.tooltips.today}).append($('<span>').addClass(options.icons.today))));
+                    // Author: Emmanuel Sabbatini
+                    // Date: 17/05/2016
+                    row.push($('<td>').append($('<span>').attr({'data-action':'today', 'title': options.tooltips.today}).append($('<b>Today</b>'))));
+                    
                 }
                 if (!options.sideBySide && hasDate() && hasTime()) {
                     row.push($('<td>').append($('<a>').attr({'data-action':'togglePicker', 'title': options.tooltips.selectTime}).append($('<span>').addClass(options.icons.time))));
