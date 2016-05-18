@@ -1,6 +1,6 @@
 ﻿(function() {
 	'use strict';
- 	
-	angular.module('minihotelpmsApp', ['ngRoute', 'ngAnimate', 'ui.bootstrap', 'door3.css', 'ngSanitize', 'ngCsv']);
- 	
+
+	angular.module('minihotelpmsApp', ['ngRoute', 'ngAnimate', 'ui.bootstrap', 'ngSanitize', 'ngCsv', 'datetimepicker']);
+ 
 })();

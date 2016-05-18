@@ -14,3 +14,11 @@ C:\Repositories\MiniHotel\Source\MiniHotel.Web\obj\Debug\MiniHotel.Web.vbproj.Ge
 C:\Repositories\MiniHotel\Source\MiniHotel.Web\obj\Debug\MiniHotel.Web.dll
 C:\Repositories\MiniHotel\Source\MiniHotel.Web\obj\Debug\MiniHotel.Web.xml
 C:\Repositories\MiniHotel\Source\MiniHotel.Web\obj\Debug\MiniHotel.Web.pdb
+C:\Repo\MiniHotel\Source\MiniHotel.Web\bin\MiniHotel.Web.dll
+C:\Repo\MiniHotel\Source\MiniHotel.Web\bin\MiniHotel.Web.pdb
+C:\Repo\MiniHotel\Source\MiniHotel.Web\bin\MiniHotel.Web.xml
+C:\Repo\MiniHotel\Source\MiniHotel.Web\obj\Debug\MiniHotel.Web.Resources.resources
+C:\Repo\MiniHotel\Source\MiniHotel.Web\obj\Debug\MiniHotel.Web.vbproj.GenerateResource.Cache
+C:\Repo\MiniHotel\Source\MiniHotel.Web\obj\Debug\MiniHotel.Web.dll
+C:\Repo\MiniHotel\Source\MiniHotel.Web\obj\Debug\MiniHotel.Web.xml
+C:\Repo\MiniHotel\Source\MiniHotel.Web\obj\Debug\MiniHotel.Web.pdb
