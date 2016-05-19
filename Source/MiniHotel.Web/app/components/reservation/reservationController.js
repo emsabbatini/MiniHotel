@@ -7,9 +7,8 @@
         vm.isVisible = false;
 
         $scope.loadReservation = function (data) {
+            vm.isVisible = data ? true : false;
             vm.reservationsRS = data;
-            if (data == []) vm.isVisible = false;
-            else vm.isVisible = true;
         };
 
     });

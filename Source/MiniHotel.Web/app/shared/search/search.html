@@ -1,153 +1,68 @@
 ﻿<div class="container">
-    <form ng-submit="search.search()">
+    <form>
         <div class="row">
             <div class="col-md-8">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="txtDateFrom">{{search.dateFromLabel}}</label>
-                            <input type="text" id="txtDateFrom" class="form-control input-sm" placeholder="DD/MM/YYYY" 
-                            datetimepicker datetimepicker-options="{{ search.datepickerOptions }}" />
+                            <label for="txtDateFrom">{{ search.dateFromLabel }}</label>
+                            <input type="text" id="txtDateFrom" class="form-control" placeholder="YYYY-MM-DD" 
+                            datetimepicker datetimepicker-options="{{ search.dpDateFromOptions }}" 
+                            ng-model="search.dateFrom" 
+                            ng-required="search.isFieldRequired" />
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="txtDateTo">{{search.dateToLabel}}</label>
-                            <input id="txtDateTo" class="form-control" placeholder="DD/MM/YYYY"/>
+                            <input id="txtDateTo" class="form-control" placeholder="YYYY-MM-DD"
+                            datetimepicker datetimepicker-options="{{ search.dpDateToOptions }}" 
+                            ng-model="search.dateTo"
+                            ng-required="search.isFieldRequired" />
                         </div>
                     </div>
                 </div>
-                <div class="row" ng-show="search.isReservationsView">
+                <div class="row" ng-show="search.isReservation">
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="txtDateDepartureFrom">Departure From:</label>
-                            <input id="txtDateDepartureFrom" class="form-control" placeholder="DD/MM/YYYY"/>
+                            <input id="txtDateDepartureFrom" class="form-control" placeholder="YYYY-MM-DD"
+                            datetimepicker datetimepicker-options="{{ search.dpDateFromOptions }}" 
+                            ng-model="search.dateDepFrom" />
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="txtDateDepartureTo">Departure To:</label>
-                            <input id="txtDateDepartureTo" class="form-control" placeholder="DD/MM/YYYY"/>
+                            <input id="txtDateDepartureTo" class="form-control" placeholder="YYYY-MM-DD"
+                            datetimepicker datetimepicker-options="{{ search.dpDateToOptions }}" 
+                            ng-model="search.dateDepTo" />
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="row">
-                   <div class="col-md-12">
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-primary btn-block"><i class="fa fa-search"></i> SEARCH</button>
+                <div class="row" ng-style="search.buttonsStyle">
+                    <div class="row">
+                       <div class="col-md-12">
+                            <div class="form-group">
+                                <button class="btn btn-primary btn-block" ng-click="search.search()"><i class="fa fa-search"></i> SEARCH</button>
+                            </div>
+                        </div>   
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <button class="btn btn-success btn-block" ng-csv="search.exportData" csv-header="search.exportDataHeader" filename="export.csv" ng-disabled="search.isDisabled"><i class="fa fa-file-excel-o"></i> EXPORT</button>  
+                            </div>  
+                        </div>    
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <button class="btn btn-success btn-block" ng-click="search.print()" ng-disabled="search.isDisabled"><i class="fa fa-print"></i> PRINT</button>  
+                            </div> 
                         </div>
-                    </div>   
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <button class="btn btn-success btn-block" ng-csv="search.exportData" csv-header="search.exportDataHeader" filename="export.csv" ng-disabled="search.isDisabled"><i class="fa fa-file-excel-o"></i> EXPORT</button>  
-                        </div>  
-                    </div>    
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <button class="btn btn-success btn-block" ng-disabled="search.isDisabled"><i class="fa fa-print"></i> PRINT</button>  
-                        </div> 
                     </div>
                 </div>  
-            </div>
-        </div>
-
-
-
-        <div class="row">            
-            <div class="col-sm-8">
-                <div class="row">
-                    <div class="col-sm-6 text-right" >
-                        <label>{{search.dateFromLabel}}</label>
-                        <!--input type="date" class="form-control" ng-model="search.dateFrom" placeholder="yyyy-MM-dd" min="2016-01-01" max="2099-12-31" required /-->
-                        <p class="input-group">
-                            <input type="text" class="form-control" uib-datepicker-popup="dd/MM/yyyy" 
-                                                                    data-show-weeks="false"
-                                                                    show-button-bar="false" 
-                                                                    is-open="search.dateFromOpened"
-                                                                    placeholder="dd/mm/yyyy"
-                                                                    ng-model="search.dateFrom" 
-                                                                    ng-focus="search.dateFromOpen()"  
-                                                                    ng-required="true" 
-                                                                    ng-change="search.dateToSetMin()"
-                                                                    min-date="search.dateFromMin"/>
-                            <span class="input-group-btn">
-                                <button type="button" class="btn btn-default" ng-click="search.dateFromOpen()"><i class="glyphicon glyphicon-calendar"></i></button>
-                            </span>
-                        </p>
-                    </div>
-                    <div class="col-sm-6 text-right">
-                        <label>{{search.dateToLabel}}</label>
-                        <!--input type="date" class="form-control" ng-model="search.dateTo" placeholder="yyyy-MM-dd" min="2016-01-01" max="2099-12-31" required /-->
-                        <p class="input-group">
-                            <input type="text" class="form-control" uib-datepicker-popup="dd/MM/yyyy"
-                                                                    data-show-weeks="false"
-                                                                    show-button-bar="false" 
-                                                                    is-open="search.dateToOpened" 
-                                                                    placeholder="dd/mm/yyyy"
-                                                                    ng-model="search.dateTo" 
-                                                                    ng-focus="search.dateToOpen()"  
-                                                                    ng-required="true" 
-                                                                    min-date="search.dateToMin" 
-                                                                    init-date="search.dateToInit"/>
-                            <span class="input-group-btn">
-                                <button type="button" class="btn btn-default" ng-click="search.dateToOpen()"><i class="glyphicon glyphicon-calendar"></i></button>
-                            </span>
-                        </p>                    
-                    </div>
-                </div>
-                <br />
-                <div class="row" ng-show="search.isReservationsView">
-                    <div class="col-sm-6 text-right">
-                        <label>Departure From:</label>
-                        <!--input type="date" class="form-control" ng-model="search.departureFrom" placeholder="yyyy-MM-dd" min="2016-01-01" max="2099-12-31" ng-required="search.isRequired" /-->
-                        <p class="input-group">
-                            <input type="text" class="form-control" uib-datepicker-popup="dd/MM/yyyy"
-                                                                    data-show-weeks="false"
-                                                                    show-button-bar="false" 
-                                                                    is-open="search.dateDepFromOpened" 
-                                                                    placeholder="dd/mm/yyyy"
-                                                                    ng-model="search.dateDepFrom" 
-                                                                    ng-focus="search.dateDepFromOpen()"  
-                                                                    ng-required="search.isRequired" 
-                                                                    ng-change="search.dateDepToSetMin()"
-                                                                    min-date="search.dateDepFromMin"/>                                
-                            <span class="input-group-btn">
-                                <button type="button" class="btn btn-default" ng-click="search.dateDepFromOpen()"><i class="glyphicon glyphicon-calendar"></i></button>
-                            </span>
-                        </p>
-                    </div>
-                    <div class="col-sm-6 text-right">
-                        <label>Departure To:</label>
-                         <!--input type="date" class="form-control" ng-model="search.departureTo" placeholder="yyyy-MM-dd" min="2016-01-01" max="2099-12-31" ng-required="search.isRequired" /-->
-                        <p class="input-group">
-                            <input type="text" class="form-control" uib-datepicker-popup="dd/MM/yyyy"
-                                                                    data-show-weeks="false"
-                                                                    show-button-bar="false" 
-                                                                    is-open="search.dateDepToOpened" 
-                                                                    placeholder="dd/mm/yyyy"
-                                                                    ng-model="search.dateDepTo" 
-                                                                    ng-focus="search.dateDepToOpen()"  
-                                                                    ng-required="search.isRequired" 
-                                                                    min-date="search.dateDepToMin"
-                                                                    init-date="search.dateDepToInit" />
-                            <span class="input-group-btn">
-                                <button type="button" class="btn btn-default" ng-click="search.dateDepToOpen()"><i class="glyphicon glyphicon-calendar"></i></button>
-                            </span>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="col-sm-6">
-                    <input type="submit" class="btn btn-primary btn-lg btn-block" value="Search" />
-                </div>
-                <div class="col-sm-6">
-                    <button class="btn btn-success btn-lg btn-block" ng-csv="search.exportData" csv-header="search.exportDataHeader" filename="export.csv" ng-disabled="search.exportIsDisabled"><i class="fa fa-file-excel-o"></i> Export</button>  
-                </div>
             </div>
         </div>
     </form>

@@ -1,66 +1,45 @@
 ﻿(function () {
     'use strict';
 
-    angular.module('minihotelpmsApp').controller('searchController', function ($scope, minihotelpmsservice, constants, $location, $uibModal, dataservice) {
+    angular.module('minihotelpmsApp').controller('searchController', function ($scope, minihotelpmsservice, constants, $location, $uibModal, dataservice, commonservice) {
         var vm = this;
 
-
-            vm.datepickerOptions = { showTodayButton: true, format:"DD/MM/YYYY"
-
-            };
-
-
-        vm.isDisabled = true;
         vm.exportDataHeader = [];
         vm.exportData = [];
-        
-        vm.isReservationsView = $location.$$path != constants.partialView['AVAILABLE'] ? true : false;
 
-        vm.dateFromLabel = vm.isReservationsView ? 'Arrival From:' : 'Date From:';
-        vm.dateFromOpened = false;
-        vm.dateFromOpen = function () { vm.dateFromOpened = true; };
-        
-        vm.dateToLabel = vm.isReservationsView ? 'Arrival To:' : 'Date To:';
-        vm.dateToOpened = false;
-        vm.dateToOpen = function () { vm.dateToOpened = true; };
-        vm.dateToSetMin = function () {
-            vm.dateToMin = vm.dateFrom;
-            vm.dateToInit = vm.isReservationsView ? new Date() : vm.dateFrom;
-            vm.dateToMin.setDate(vm.dateToMin.getDate() + 1);
+        vm.isReservation = $location.$$path != constants.partialView['AVAILABLE'] ? true : false;
+
+        vm.buttonsStyle = vm.isReservation ? { 'margin': '10% auto' } : {};
+
+        vm.dateFromLabel = vm.isReservation ? 'Arrival From:' : 'Date From:';
+        vm.dpDateFromOptions = {
+            format:"YYYY-MM-DD",
+            showTodayButton: true,
+            defaultDate: vm.isReservation ? false : commonservice.getDateYYYYMMDD(commonservice.getDateAdd(new Date(), 1))
         };
 
-        vm.dateDepFromOpened = false;
-        vm.dateDepFromOpen = function () { vm.dateDepFromOpened = true; };
-        
-        vm.dateDepToOpened = false;
-        vm.dateDepToOpen = function () { vm.dateDepToOpened = true; };
-        vm.dateDepToSetMin = function () {
-            vm.dateDepToMin = vm.dateDepFrom;
-            vm.dateDepToInit = vm.isReservationsView ? new Date() : vm.dateDepFrom;
-            vm.dateDepToMin.setDate(vm.dateDepToMin.getDate() + 1);
+        vm.dateToLabel = vm.isReservation ? 'Arrival To:' : 'Date To:';
+        vm.dpDateToOptions = {
+            format: "YYYY-MM-DD",
+            showTodayButton: true,
+            defaultDate: vm.isReservation ? false : commonservice.getDateYYYYMMDD(commonservice.getDateAdd(new Date(), 2))
         };
-        
-        vm.isRequired = vm.isReservationsView ? true : false;
-       
-        if (!vm.isReservationsView) {
-            vm.dateFromMin = new Date();
-        } else {
-            vm.dateFromMin = new Date(0, 1, 1);
-            vm.dateDepFromMin = new Date(0, 1, 1);
-        }
+
+        vm.isFieldRequired = !vm.isReservation ? true : false;
+
+        vm.isDisabled = true;
 
         vm.search = function () {
+            if (!vm.isReservation) getAvailableRaters();
+            else getReservations();
+        }
+        vm.print = function () {
 
-            switch ($location.$$path) {
-                case constants.partialView['AVAILABLE']:
-                    getAvailableRaters();
-                    break;
-                case constants.partialView['RESERVATION']:
-                    getReservations();
-                    break;
-            }
-        };
+            if (!vm.isReservation) $scope.expandAll(true);
 
+            setTimeout(function () { window.print(); }, 500);
+        }
+               
         function getAvailableRaters() {
 
             var availableRequest = {
@@ -68,8 +47,8 @@
                 'Password': '2222',
                 'HotelId': 'testhotel',
                 'HotelCurrency': 'USD',
-                'DateFrom': vm.dateFrom,
-                'DateTo': vm.dateTo,
+                'DateFrom': new Date(vm.dateFrom),
+                'DateTo': new Date(vm.dateTo),
                 'Adults': '2',
                 'Child': '0',
                 'Babies': '0',
@@ -80,18 +59,11 @@
                 if (!data.HasError){
                     $scope.loadAvailable(data.DataObject);
                     vm.isDisabled = false;
-                    dataservice.parseData(data.DataObject);
-                } 
-                    
-                else {
-                    $scope.loadAvailable([]);
-                    showModal(constants.iconType['WARNING'], data.ErrorMessage);
-                    vm.isDisabled = true;
-                    
-                }
+                    setData(data.DataObject);
+                }  
+                else showError(constants.iconType['WARNING'], data.ErrorMessage, $scope.loadAvailable(null));
             }, function (error) {
-                $scope.loadAvailable([]);
-                alert("TODO: ERROR SERVER!!!");
+                showError(constants.iconType['ERROR'], "ERROR SERVER!!!", $scope.loadAvailable(null));
             });
         }
 
@@ -110,19 +82,14 @@
             };
 
             minihotelpmsservice.getReservations(reservationRequest).then(function (data) {
-                if (!data.HasError){
+                if (!data.HasError) {
                     $scope.loadReservation(data.DataObject);
                     vm.isDisabled = false;
-                    parseExportaData(data.DataObject);
+                    setData(data.DataObject);
                 }
-                else {
-                    $scope.loadReservation([]);
-                    vm.isDisabled = true;
-                    showModal(constants.iconType['WARNING'], data.ErrorMessage);
-                }
+                else showError(constants.iconType['WARNING'], data.ErrorMessage, $scope.loadReservation(null));
             }, function (error) {
-                $scope.loadReservation([]);
-                alert("TODO: ERROR SERVER!!!");
+                showError(constants.iconType['ERROR'], "ERROR SERVER!!!", $scope.loadReservation(null));
             });
 
         }
@@ -141,6 +108,18 @@
                     }
                 }
             });
+        }
+
+        function showError(icon, message, callback) {
+            vm.isDisabled = true;
+            if (callback) callback();
+            showModal(icon, message);
+        }
+
+        function setData(data) {
+            var obj = dataservice.parseData(data);
+            vm.exportData = obj.exportData;
+            vm.exportDataHeader = obj.exportDataHeader;
         }
 
     });

@@ -32,13 +32,35 @@ Public Class MiniHotelPMSService
     Public Function GetReservations(ByVal Body As ReservationDTO) As MiniHotelPMSModel(Of ReservationsRSModel) Implements IMiniHotelPMSService.GetReservations
 
         Dim Response As String
+
+        Dim arrivalFrom As String = String.Empty
+        Dim arrivalTo As String = String.Empty
+        Dim departureFrom As String = String.Empty
+        Dim departureTo As String = String.Empty
+
+        If (Not IsNothing(Body.ArrivalDateFrom)) Then
+            arrivalFrom = Body.ArrivalDateFrom.ToString("yyyy-MM-dd")
+        End If
+
+        If (Not IsNothing(Body.ArrivalDateTo)) Then
+            arrivalTo = Body.ArrivalDateTo.ToString("yyyy-MM-dd")
+        End If
+
+        If (Not IsNothing(Body.DepartureDateFrom)) Then
+            departureFrom = Body.DepartureDateFrom.ToString("yyyy-MM-dd")
+        End If
+
+        If (Not IsNothing(Body.DepartureDateTo)) Then
+            departureTo = Body.DepartureDateTo.ToString("yyyy-MM-dd")
+        End If
+
         Dim RequestBody = "<?xml version='1.0' encoding='UTF-8' ?>" + _
                         "<ReservationsRQ>" + _
                         "<Authentication username='test' password='2222' />" + _
                         "<Hotel id='demo2' />" + _
                         "<CreateDate From='' To='' />" + _
-                        "<ArrivalDate From='" + Body.ArrivalDateFrom.ToString("yyyy-MM-dd") + "' To='" + Body.ArrivalDateTo.ToString("yyyy-MM-dd") + "' />" + _
-                        "<DepartureDate From='" + Body.DepartureDateFrom.ToString("yyyy-MM-dd") + "' To='" + Body.DepartureDateTo.ToString("yyyy-MM-dd") + "' />" + _
+                        "<ArrivalDate From='" + arrivalFrom + "' To='" + arrivalTo + "' />" + _
+                        "<DepartureDate From='" + departureFrom + "' To='" + departureTo + "' />" + _
                         "</ReservationsRQ>"
 
         Using Client As New WebClient

@@ -6,14 +6,13 @@
 
         vm.isVisible = false;
 
-        vm.expandAll = function (expanded) {
+        $scope.expandAll = function (expanded) {
             $scope.$broadcast('onExpandAll', { expanded: expanded });
         };
 
         $scope.loadAvailable = function (data) {
+            vm.isVisible = data ? true : false;
             vm.availableRaters = data;
-            if (data == []) vm.isVisible = false;
-            else vm.isVisible = true;
         };
 
     });

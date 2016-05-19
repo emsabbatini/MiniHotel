@@ -44,40 +44,40 @@
         End Set
     End Property
     Private m_CreateDateTo As Date
-    Public Property ArrivalDateFrom() As Date
+    Public Property ArrivalDateFrom() As Date?
         Get
             Return m_ArrivalDateFrom
         End Get
-        Set(value As Date)
+        Set(value As Date?)
             m_ArrivalDateFrom = value
         End Set
     End Property
-    Private m_ArrivalDateFrom As Date
-    Public Property ArrivalDateTo() As Date
+    Private m_ArrivalDateFrom As Date?
+    Public Property ArrivalDateTo() As Date?
         Get
             Return m_ArrivalDateTo
         End Get
-        Set(value As Date)
+        Set(value As Date?)
             m_ArrivalDateTo = value
         End Set
     End Property
-    Private m_ArrivalDateTo As Date
-    Public Property DepartureDateFrom() As Date
+    Private m_ArrivalDateTo As Date?
+    Public Property DepartureDateFrom() As Date?
         Get
             Return m_DepartureDateFrom
         End Get
-        Set(value As Date)
+        Set(value As Date?)
             m_DepartureDateFrom = value
         End Set
     End Property
-    Private m_DepartureDateFrom As Date
-    Public Property DepartureDateTo() As Date
+    Private m_DepartureDateFrom As Date?
+    Public Property DepartureDateTo() As Date?
         Get
             Return m_DepartureDateTo
         End Get
-        Set(value As Date)
+        Set(value As Date?)
             m_DepartureDateTo = value
         End Set
     End Property
-    Private m_DepartureDateTo As Date
+    Private m_DepartureDateTo As Date?
 End Class

@@ -5,10 +5,11 @@
     
         var service = { parseData: parseData };
 
+        return service;
+
         function parseData(data){
 
             var returnData = {};
-
             returnData.exportData = [];
             returnData.exportDataHeader = [];
             
@@ -50,8 +51,6 @@
 
             return returnData;
         }
-
-        return service;
 
     });
 
