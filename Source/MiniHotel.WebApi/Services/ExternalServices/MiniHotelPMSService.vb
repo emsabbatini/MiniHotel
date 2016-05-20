@@ -39,19 +39,19 @@ Public Class MiniHotelPMSService
         Dim departureTo As String = String.Empty
 
         If (Not IsNothing(Body.ArrivalDateFrom)) Then
-            arrivalFrom = Body.ArrivalDateFrom.ToString("yyyy-MM-dd")
+            arrivalFrom = CDate(Body.ArrivalDateFrom).ToString("yyyy-MM-dd")
         End If
 
         If (Not IsNothing(Body.ArrivalDateTo)) Then
-            arrivalTo = Body.ArrivalDateTo.ToString("yyyy-MM-dd")
+            arrivalTo = CDate(Body.ArrivalDateTo).ToString("yyyy-MM-dd")
         End If
 
         If (Not IsNothing(Body.DepartureDateFrom)) Then
-            departureFrom = Body.DepartureDateFrom.ToString("yyyy-MM-dd")
+            departureFrom = CDate(Body.DepartureDateFrom).ToString("yyyy-MM-dd")
         End If
 
         If (Not IsNothing(Body.DepartureDateTo)) Then
-            departureTo = Body.DepartureDateTo.ToString("yyyy-MM-dd")
+            departureTo = CDate(Body.DepartureDateTo).ToString("yyyy-MM-dd")
         End If
 
         Dim RequestBody = "<?xml version='1.0' encoding='UTF-8' ?>" + _

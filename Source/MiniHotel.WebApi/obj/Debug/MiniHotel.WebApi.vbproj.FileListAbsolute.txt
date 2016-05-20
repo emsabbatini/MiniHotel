@@ -119,3 +119,4 @@ C:\Repo\MiniHotel\Source\MiniHotel.WebApi\bin\MiniHotel.WebApi.xml
 C:\Repo\MiniHotel\Source\MiniHotel.WebApi\obj\Debug\MiniHotel.WebApi.dll
 C:\Repo\MiniHotel\Source\MiniHotel.WebApi\obj\Debug\MiniHotel.WebApi.xml
 C:\Repo\MiniHotel\Source\MiniHotel.WebApi\obj\Debug\MiniHotel.WebApi.pdb
+C:\Repo\MiniHotel\Source\MiniHotel.WebApi\bin\System.Web.Cors.dll

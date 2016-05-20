@@ -75,3 +75,4 @@ C:\Repo\MiniHotel\Source\MiniHotel.WebApi\bin\System.Web.Helpers.xml
 C:\Repo\MiniHotel\Source\MiniHotel.WebApi\bin\System.Web.WebPages.xml
 C:\Repo\MiniHotel\Source\MiniHotel.WebApi\bin\System.Web.WebPages.Deployment.xml
 C:\Repo\MiniHotel\Source\MiniHotel.WebApi\bin\System.Web.WebPages.Razor.xml
+C:\Repo\MiniHotel\Source\MiniHotel.WebApi\bin\System.Web.Cors.dll
